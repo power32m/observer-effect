@@ -137,7 +137,6 @@ function showChapter(idx) {
     html += '<div class="chapter-content">' + ch.text + '</div>';
     document.getElementById('contentArea').innerHTML = html;
     document.querySelector('.sidebar').classList.remove('hidden');
-    document.getElementById('bottomNav').style.display = window.matchMedia('(max-width: 768px)').matches ? 'flex' : 'none';
     document.getElementById('navTitle').textContent = ch.title;
     document.getElementById('prevBtn').style.visibility = idx > 0 ? 'visible' : 'hidden';
     document.getElementById('nextBtn').style.visibility = idx < chapters.length - 1 ? 'visible' : 'hidden';
@@ -145,6 +144,21 @@ function showChapter(idx) {
         item.classList.remove('active');
         if (i === idx + 1) { item.classList.add('active'); }
     });
+    // 隐藏底部导航，等用户滑到到底部才显示
+    document.getElementById('bottomNav').style.display = 'none';
+    // 监听滚动，快到底部时显示导航
+    setTimeout(function() {
+        document.getElementById('contentArea').onscroll = function() {
+            var sh = this.scrollHeight - this.clientHeight;
+            var st = this.scrollTop;
+            if (st >= sh - 50) {
+                document.getElementById('bottomNav').style.display = window.matchMedia('(max-width: 768px)').matches ? 'flex' : 'none';
+            } else {
+                document.getElementById('bottomNav').style.display = 'none';
+            }
+        };
+        document.getElementById('contentArea').onscroll();
+    }, 100);
 }
 
 function prevChapter() {
