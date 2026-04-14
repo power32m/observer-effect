@@ -2,6 +2,7 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>星际文明：观测者效应 - 阅读器</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
@@ -36,18 +37,18 @@ body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
 .cover-page .genres{font-size:0.85rem;color:#a09080;margin-bottom:30px}
 .start-btn{display:inline-block;padding:15px 40px;background:linear-gradient(135deg,#3d3d3d,#2a2a2a);color:#f5f0e6;border:none;border-radius:30px;font-size:1rem;cursor:pointer;transition:all 0.3s}
 .start-btn:hover{background:linear-gradient(135deg,#5c4d3a,#3d3d3d);transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.2)}
+.mobile-nav{display:none}
 @media(max-width:768px){
+body{font-size:16px}
 .header{padding:10px 12px;position:sticky}
 .header h1{font-size:1rem;letter-spacing:1px}
 .subtitle{display:none}
+.pencil-line{margin:8px auto;max-width:200px}
 .container{display:block;margin-top:0;padding:0}
-.sidebar{width:100%;position:sticky;top:0;max-height:150px;padding:8px 12px;border-radius:0;border:none;border-bottom:1px solid #d4c9b5;background:#f0ebe0}
-.sidebar h2{font-size:0.8rem;margin-bottom:6px}
-.episode-title{font-size:0.75rem;margin:6px 0 4px}
-.chapter-item{padding:5px 10px;font-size:0.8rem}
+.sidebar{display:none}
 .sidebar.hidden{display:none}
-.content{width:100%;border:none;border-radius:0;min-height:calc(100vh - 60px);display:flex;flex-direction:column}
-.chapter-content{flex:1}
+.content{width:100%;border:none;border-radius:0}
+.chapter-content{padding:15px}
 .chapter-content h1{font-size:1.15rem;text-align:left}
 .chapter-content p{font-size:1rem;line-height:1.8;text-align:left;margin-bottom:1.2em}
 .chapter-content .meta{font-size:0.75rem;text-align:left}
@@ -59,11 +60,6 @@ body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
 .cover-page .author{font-size:0.85rem;margin-bottom:10px}
 .cover-page .genres{font-size:0.8rem;margin-bottom:20px}
 .start-btn{padding:12px 28px;font-size:0.95rem}
-.mobile-nav{display:none}
-.mobile-nav-bar{display:none}
-}
-@media(max-width:768px){
-.sidebar{display:none}
 .mobile-nav{display:block;padding:10px 15px;background:#f0ebe0;border-top:1px solid #d4c9b5}
 .mobile-nav h3{font-size:0.8rem;color:#5c4d3a;margin-bottom:8px}
 .mobile-nav-chapters{display:flex;flex-wrap:wrap;gap:6px}
@@ -92,10 +88,10 @@ body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
             <button class="start-btn" onclick="showChapter(0)">开始阅读</button>
         </div>
     </div>
-    <div class="mobile-nav" id="mobileNav">
-        <h3>目录</h3>
-        <div class="mobile-nav-chapters" id="mobileNavChapters"></div>
-    </div>
+</div>
+<div class="mobile-nav" id="mobileNav">
+    <h3>目录</h3>
+    <div class="mobile-nav-chapters" id="mobileNavChapters"></div>
 </div>
 <script>
 var chapters = [
@@ -110,15 +106,13 @@ function initChapters() {
     coverItem.textContent = '◀ 封面';
     coverItem.onclick = showCover;
     list.appendChild(coverItem);
+    var mobileList = document.getElementById('mobileNavChapters');
     chapters.forEach(function(ch, i) {
         var item = document.createElement('div');
         item.className = 'chapter-item';
         item.textContent = ch.title;
         item.onclick = (function(idx) { return function() { showChapter(idx); }; })(i);
         list.appendChild(item);
-    });
-    var mobileList = document.getElementById('mobileNavChapters');
-    chapters.forEach(function(ch, i) {
         var a = document.createElement('a');
         a.href = '#';
         a.textContent = ch.title;
