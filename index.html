@@ -260,6 +260,95 @@ body {
     transform: translateY(-2px);
     box-shadow: 0 4px 15px rgba(0,0,0,0.2);
 }
+
+/* 手机适配 */
+@media screen and (max-width: 768px) {
+    .header {
+        padding: 15px 10px;
+    }
+    
+    .header h1 {
+        font-size: 1.2rem;
+        letter-spacing: 2px;
+    }
+    
+    .subtitle {
+        font-size: 0.75rem;
+    }
+    
+    .container {
+        flex-direction: column;
+        margin-top: 100px;
+        padding: 15px;
+        gap: 15px;
+    }
+    
+    .sidebar {
+        width: 100%;
+        position: static;
+        max-height: none;
+        padding: 15px;
+    }
+    
+    .sidebar h2 {
+        font-size: 0.85rem;
+    }
+    
+    .chapter-item {
+        font-size: 0.8rem;
+        padding: 8px 10px;
+    }
+    
+    .content {
+        width: 100%;
+    }
+    
+    .chapter-content {
+        padding: 20px 15px;
+    }
+    
+    .chapter-content h1 {
+        font-size: 1.3rem;
+    }
+    
+    .chapter-content p {
+        font-size: 1rem;
+        line-height: 1.7;
+        text-align: left;
+    }
+    
+    .cover-page {
+        padding: 20px 15px;
+    }
+    
+    .cover-page h2 {
+        font-size: 1.4rem;
+        letter-spacing: 2px;
+    }
+    
+    .cover-page img {
+        max-height: 40vh;
+    }
+}
+
+/* 小屏手机 */
+@media screen and (max-width: 480px) {
+    .header h1 {
+        font-size: 1rem;
+    }
+    
+    .chapter-content {
+        padding: 15px 12px;
+    }
+    
+    .chapter-content h1 {
+        font-size: 1.1rem;
+    }
+    
+    .chapter-content p {
+        font-size: 0.95rem;
+    }
+}
 </style>
 </head>
 <body>
