@@ -256,7 +256,7 @@ function preprocessMeta(md) {
             // 把剩余的 **bold** 也转成 <b>，再包一层 meta
             var text = match.replace(/\*\*(【[^】]+】)\*\*/g, '$1');
             text = text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
-            return '<p class="meta">' + text + '</p>\n\n---';
+            return '<p class="meta">' + text + '</p>';
         }
     );
 }
