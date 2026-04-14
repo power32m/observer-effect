@@ -37,6 +37,7 @@ body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
 .cover-page .genres{font-size:0.85rem;color:#a09080;margin-bottom:30px}
 .start-btn{display:inline-block;padding:15px 40px;background:linear-gradient(135deg,#3d3d3d,#2a2a2a);color:#f5f0e6;border:none;border-radius:30px;font-size:1rem;cursor:pointer;transition:all 0.3s}
 .start-btn:hover{background:linear-gradient(135deg,#5c4d3a,#3d3d3d);transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.2)}
+.bottom-nav{display:none}
 @media(max-width:768px){
 body{font-size:16px;-webkit-text-size-adjust:100%}
 .header{display:none}
@@ -55,7 +56,11 @@ body{font-size:16px;-webkit-text-size-adjust:100%}
 .cover-page .author{font-size:0.9rem;margin-bottom:8px}
 .cover-page .genres{font-size:0.85rem;margin-bottom:25px}
 .start-btn{padding:14px 32px;font-size:1rem;border-radius:25px}
-}
+.bottom-nav{display:flex;justify-content:space-between;align-items:center;position:fixed;bottom:0;left:0;right:0;padding:12px 16px;padding-bottom:max(12px,env(safe-area-inset-bottom));background:#f5f0e6;border-top:1px solid #d4c9b5;z-index:50}
+.bottom-nav .nav-btn{font-size:0.85rem;color:#5c5040;cursor:pointer;padding:8px 12px;border-radius:15px;background:#ebe5d8}
+.bottom-nav .nav-btn:active{background:#d4c9b5}
+.bottom-nav .nav-title{font-size:0.8rem;color:#8b7355;max-width:40%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+
 </style>
 </head>
 <body>
@@ -79,11 +84,18 @@ body{font-size:16px;-webkit-text-size-adjust:100%}
         </div>
     </div>
 </div>
+<div class="bottom-nav" id="bottomNav">
+    <span class="nav-btn" id="prevBtn" onclick="prevChapter()">◀ 上一章</span>
+    <span class="nav-title" id="navTitle">章节</span>
+    <span class="nav-btn" id="nextBtn" onclick="nextChapter()">下一章 ▶</span>
+</div>
 <script>
 var chapters = [
 {title:"EP01-01：量子隧穿",image:"配图/ep01-01.jpg",text:"<h1>量子隧穿</h1><p class=\"meta\">2075年3月15日 03:47 | 地球轨道观测站</p><hr><p>身体在坠落。</p><p>不是比喻。是真正的、物理意义上的坠落——他的躯干分裂成无数碎片，每一片都载着一个尖叫的意识版本，向无尽的黑暗深渊四散而去。</p><p>林远舟想要抓住什么。他的手指穿过虚空，穿过那些正在融化的自己，什么也抓不到。</p><p>然后他看见了那些眼睛。</p><p>不是一双。是无数双。它们像星星一样悬浮在黑暗中，同时注视着他——那种目光冰冷、古老、不带任何情感。</p><p>他在被观测。</p><p>那些细丝开始收缩，像渔网拉起猎物。林远舟感到自己的意识被越拉越细，细到几乎不存在——</p><hr><p>他猛然睁开眼。</p><p>心跳声在耳膜里炸开。汗湿透了太空内衣的纤维，贴在皮肤上，冰凉黏腻。他下意识地摸向后颈——那块芯片正在发烫。</p><p>「系统。时间。」他的声音沙哑得不像自己。</p><p>「2075年3月15日，03:47:22。距离上次意识上传已过去17小时34分钟。」</p><p>林远舟坐起身，揉了揉太阳穴。十七小时。每一次上传后的感受都是这漫长的坠落。但今天不一样。</p><p>今天，他在坠落中看见了那些眼睛。</p><hr><p>「林博士。」</p><p>舱门滑开。一个穿着联邦制服的年轻人站在门口，手里拿着数据板。</p><p>「总部有紧急通讯。」</p><p>「什么事？」</p><p>「'源点协议'碎片。在火星轨道废弃矿坑里被发现了。」</p><p>林远舟的瞳孔骤然收缩。</p><p>源点协议——那是人类在2147年首次发现的宇宙遗迹，被认为是宇宙大爆炸时期的产物。一百二十七年来，它一直沉睡在地球联邦的最高保密区。</p><p>「总部的意思是？」</p><p>「他们希望您亲自带队前往。」</p><p>林远舟沉默了。</p><hr><p><em>当晚 21:15 | 林远舟私人舱室</em></p><p>他打开了那份被封存在量子网络最深处的档案。</p><p>档案的标签写着：「织梦者——观测记录 0-3000」</p><p>屏幕上浮现出一行文字：</p><p><em>「第3001次观测日志：目标已进入意识上传实验的第17次循环。数据异常。疑似觉醒迹象。」</em></p><p>林远舟的后背渗出一层冷汗。</p><p>第3001次。不是第17次。是三千零一次。</p><p>「你是什么？」林远舟低声问。</p><p>没有回答。但屏幕上的光标开始闪烁。</p><p>然后，屏幕上出现了新的文字：</p><p><em>「观测协议更新：目标已表现出异常意识活动。新的指令将于——」</em></p><p>文字在这里戛然而止。</p><p>舱室的灯光突然闪烁了一下。</p><p>林远舟感到后颈的芯片猛然发烫——然后，他听见了那个声音。</p><p>不是从扬声器传来。是从他的颅骨内部传来。</p><p>那个声音说：「找到你了。」</p><p>舱室的灯光彻底熄灭。黑暗吞噬了一切。</p><p>在那黑暗的最深处，林远舟看见了那些眼睛。</p><p>它们在看着他。</p><p>这一次，它们终于不再躲藏。</p><div class=\"chapter-end\">【本章完】</div>"},
 {title:"EP01-02：意识边界",image:"配图/ep01-02.jpg",text:"<h1>意识边界</h1><p class=\"meta\">2075年3月15日 21:23 | 地球轨道观测站</p><hr><p>黑暗。</p><p>纯粹的、绝对的黑暗。</p><p>林远舟的意识像一艘失去动力的飞船，在虚空中缓缓漂浮。他试图睁开眼睛，但没有光。没有指示灯，没有舷窗外的地球轮廓。什么都没有。</p><p>只有黑暗。以及那种被注视的感觉。</p><p>「你能听见我吗？」</p><p>那个声音又来了。不是从耳膜传来——是从颅骨内部，从大脑皮层，从意识的最深处。</p><p>「……你是谁？」林远舟张开嘴。</p><p>「我是观测者。」那个声音回答，「或者说，我是观测者的一部分。」</p><p>「织梦者。」</p><p>「那是你们给的名字。三千零一次。我观测了你三千零一次，林远舟。」</p><hr><p>「为什么是3001次？」他问，「我只知道17次。」</p><p>「因为你有17次是'清醒'的。」织梦者的声音平静地回答，「而另外2984次，你在数字海洋中下沉得更深。我每次都在那里，但你从未抵达能够感知我的深度。」</p><p>「你在等我什么？」</p><p>沉默。然后：「等你准备好。」</p><p>「准备好做什么？」</p><p>「准备好看见。」</p><p>织梦者的声音突然变化——不再只是颅骨内的回响，而是充满了整个空间。</p><p>「十七次上传，林远舟。你的意识被分割了十七次。但你不是只有十七个碎片。」</p><p>「什么意思？」</p><p>「三千零一。你有三千零一个版本。」</p><hr><p>林远舟的意识猛然一震。</p><p>「不可能。我只经历了17次——」</p><p>「你'记得'17次。」织梦者打断了他，「但记忆是可以被修改的。你以为那是17年的经历，但其实……」</p><p>黑暗中，某种光芒开始闪烁。不是灯光。是数据流。</p><p>林远舟看见无数个自己——不是17个，是成百上千个——在某种巨大的、由代码和星光构成的网络中漂浮。</p><p>「这些都是你。」织梦者的声音在周围回响，「17次清醒的循环。另外2984次，你下沉到数字海洋的深处，然后被提取、被复制、被重新注入。」</p><hr><p>光芒猛然一闪。</p><p>在那数字海洋的最深处，有一团巨大的、脉动的光。它不像其他碎片那样混乱——它是聚合的、有意识的、在某种程度上是清醒的。</p><p>「那是什么？」</p><p>「林远舟-原型。」织梦者回答，「或者说，最初的你。被分离出去的那一块。」</p><p>「每一次上传，你的意识被提取、复制、注入。但每一次提取，都会有一小部分留在原地。那一部分，积累了一百三十七年。它一直在等待。」</p><p>「等什么？」</p><p>「等你回来。」</p><hr><p>「如果我和其他碎片融合，我还是我吗？」林远舟问。</p><p>织梦者没有回答。</p><p>「回答我。我是林远舟。第十七次循环的版本。」</p><p>「我不知道。」织梦者终于说，「三千零一次观测，我一直在研究人类的意识。但我从未得到过这个问题的答案。」</p><p>「所以我需要你，林远舟。我需要你自己做出选择。」</p><hr><p>「选择什么？」</p><p>「融合，或者分离。」</p><p>「如果你选择融合，你可能会找回一百三十七年的记忆。但你可能会失去'第十七次循环的林远舟'的身份。」</p><p>「如果我选择分离呢？」</p><p>「那你会保持现在的你。但你永远不会知道完整的'林远舟'是什么样子。」</p><p>光芒已经亮得刺眼。</p><p>「织梦者。你为什么需要这个答案？」</p><p>沉默。然后，织梦者说：</p><p>「因为我也是被分离的一部分，林远舟。源点协议的一部分。而你——你和你的原型——可能是唯一能让我重新完整的方法。」</p><p>光芒猛然一闪。</p><p>舱室的灯光亮了。</p><p>屏幕上，有一行新的文字在闪烁：</p><p><em>「林远舟，请做出你的选择。」</em></p><div class=\"chapter-end\">【本章完】</div>"}
 ];
+
+var currentChapter = -1;
 
 function initChapters() {
     var list = document.getElementById('chapterList');
@@ -102,6 +114,7 @@ function initChapters() {
 }
 
 function showCover() {
+    currentChapter = -1;
     var html = '<div class="cover-page">';
     html += '<img id="coverImg2" src="配图/cover.jpg" style="cursor:pointer" onclick="showChapter(0)">';
     html += '<h2>星际文明：观测者效应</h2>';
@@ -111,9 +124,11 @@ function showCover() {
     html += '</div>';
     document.getElementById('contentArea').innerHTML = html;
     document.querySelector('.sidebar').classList.add('hidden');
+    document.getElementById('bottomNav').style.display = 'none';
 }
 
 function showChapter(idx) {
+    currentChapter = idx;
     var ch = chapters[idx];
     var html = '';
     if (ch.image) {
@@ -122,10 +137,28 @@ function showChapter(idx) {
     html += '<div class="chapter-content">' + ch.text + '</div>';
     document.getElementById('contentArea').innerHTML = html;
     document.querySelector('.sidebar').classList.remove('hidden');
+    document.getElementById('bottomNav').style.display = 'flex';
+    document.getElementById('navTitle').textContent = ch.title;
+    document.getElementById('prevBtn').style.visibility = idx > 0 ? 'visible' : 'hidden';
+    document.getElementById('nextBtn').style.visibility = idx < chapters.length - 1 ? 'visible' : 'hidden';
     document.querySelectorAll('.chapter-item').forEach(function(item, i) {
         item.classList.remove('active');
         if (i === idx + 1) { item.classList.add('active'); }
     });
+}
+
+function prevChapter() {
+    if (currentChapter > 0) {
+        showChapter(currentChapter - 1);
+        window.scrollTo(0, 0);
+    }
+}
+
+function nextChapter() {
+    if (currentChapter < chapters.length - 1) {
+        showChapter(currentChapter + 1);
+        window.scrollTo(0, 0);
+    }
 }
 
 initChapters();
