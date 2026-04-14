@@ -37,18 +37,24 @@ body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
 .start-btn{display:inline-block;padding:15px 40px;background:linear-gradient(135deg,#3d3d3d,#2a2a2a);color:#f5f0e6;border:none;border-radius:30px;font-size:1rem;cursor:pointer;transition:all 0.3s}
 .start-btn:hover{background:linear-gradient(135deg,#5c4d3a,#3d3d3d);transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.2)}
 @media(max-width:768px){
-.header{padding:15px;position:relative}
-.header h1{font-size:1.2rem}
-.container{flex-direction:column;margin-top:0;padding:10px}
-.sidebar{width:100%;position:static;max-height:none;padding:15px}
+.header{padding:12px 10px;position:sticky}
+.header h1{font-size:1rem;letter-spacing:1px}
+.subtitle{font-size:0.7rem}
+.container{flex-direction:column;margin-top:0;padding:0}
+.sidebar{width:100%;position:sticky;top:0;max-height:200px;padding:10px;border-radius:0;border:none;border-bottom:1px solid #d4c9b5}
 .sidebar.hidden{display:none}
-.content{width:100%}
-.chapter-content{padding:20px 15px}
-.cover-page{padding:10px 5px}
-.cover-page img{max-width:100%;width:100%;height:auto;max-height:65vh;object-fit:contain}
-.cover-page h2{font-size:1.3rem;margin:15px 0 8px}
-.cover-page .author{margin-bottom:15px}
-.cover-page .genres{margin-bottom:20px}
+.content{width:100%;border:none;border-radius:0}
+.chapter-content{padding:15px 12px}
+.chapter-content h1{font-size:1.2rem}
+.chapter-content p{font-size:0.95rem;line-height:1.7;text-align:left}
+.chapter-content .meta{font-size:0.75rem}
+.chapter-content .chapter-end{font-size:0.8rem}
+.cover-page{padding:20px 15px}
+.cover-page img{max-width:100%;width:100%;height:auto;max-height:50vh;object-fit:contain}
+.cover-page h2{font-size:1.3rem;margin:20px 0 10px}
+.cover-page .author{font-size:0.85rem;margin-bottom:15px}
+.cover-page .genres{font-size:0.8rem;margin-bottom:25px}
+.start-btn{padding:12px 30px;font-size:0.95rem}
 }
 </style>
 </head>
