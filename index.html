@@ -360,7 +360,11 @@ function initChapters() {
     chapters.forEach(function(ch, idx) {
         var item = document.createElement("div");
         item.className = "chapter-item";
-        item.textContent = ch.slug || ch.title;
+        // 格式：EP01-量子隧穿、EP02-意识边界
+        // 从 "EP01-01" 取 EP01，从 "EP01-01：量子隧穿" 取章名
+        var epNum = ch.slug.replace(/^(EP\d+)-\d+$/, '$1');
+        var chName = ch.title.replace(/^EP\d+-\d+[：:](.+)$/, '$1');
+        item.textContent = epNum + '-' + chName;
         item.onclick = (function(i) {
             return function() { showChapter(i); };
         })(idx);
