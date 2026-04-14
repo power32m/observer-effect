@@ -32,6 +32,7 @@ body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
 .cover-page .genres{font-size:0.85rem;color:#a09080;margin-bottom:30px}
 .start-btn{display:inline-block;padding:15px 40px;background:linear-gradient(135deg,#3d3d3d,#2a2a2a);color:#f5f0e6;border:none;border-radius:30px;font-size:1rem;cursor:pointer;transition:all 0.3s}
 .start-btn:hover{background:linear-gradient(135deg,#5c4d3a,#3d3d3d);transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.2)}
+.loading{text-align:center;padding:60px;color:#8b7355;font-size:1rem}
 </style>
 </head>
 <body>
@@ -45,72 +46,223 @@ body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
         <h2>目录导航</h2>
         <div id="chapterList"></div>
     </div>
-    <div class="content" id="contentArea"></div>
+    <div class="content" id="contentArea">
+        <div class="loading">加载中...</div>
+    </div>
 </div>
 <script>
-var chapters = [
-    {
-        "title": "EP01-01：量子隧穿",
-        "image": "配图/ep01-01.jpg",
-        "text": "<h1>EP01-01：量子隧穿</h1>\n<p class=\"meta\"><b>【时间】</b> 2075年3月15日 03:47 | <b>【地点】</b> 地球轨道观测站「拉格朗日-3」</p><hr>\n<hr>\n<p>身体在坠落。</p>\n<p>不是比喻。是真正的、物理意义上的坠落——他的躯干分裂成无数碎片，每一片都载着一个尖叫的意识版本，向无尽的黑暗深渊四散而去。</p>\n<p>林远舟想要抓住什么。他的手指穿过虚空，穿过那些正在融化的自己，什么也抓不到。</p>\n<p>然后他看见了那些眼睛。</p>\n<p>不是一双。是无数双。它们像星星一样悬浮在黑暗中，同时注视着他——那种目光冰冷、古老、不带任何情感。无数细丝般的光芒从那些眼睛延伸出来，连接着林远舟的每一块碎片。</p>\n<p>他在被观测。</p>\n<p>那些细丝开始收缩，像渔网拉起猎物。林远舟感到自己的意识被越拉越细，细到几乎不存在——</p>\n<hr>\n<p>他猛然睁开眼。</p>\n<p>心跳声在耳膜里炸开。汗湿透了太空内衣的纤维，贴在皮肤上，冰凉黏腻。他下意识地摸向后颈——那块芯片正在发烫，不是普通的温热，是像烙铁一样的灼烧感，仿佛有什么东西正在通过它向外传输数据。</p>\n<p>「系统。」他的声音沙哑得不像自己，「时间。」</p>\n<p>「2075年3月15日，03:47:22。」女性化的合成音从扬声器传来，「距离上次意识上传已过去17小时34分钟。您的心率达到每分钟142次，建议立即进行生理监测——」</p>\n<p>「不必。」</p>\n<p>林远舟坐起身，揉了揉太阳穴。十七小时。每一次上传后的感受都是这漫长的坠落。但今天不一样。</p>\n<p>今天，他在坠落中看见了那些眼睛。</p>\n<p>以前只是无尽的碎片和尖叫。是从什么时候开始的？第三次？第五次？他已经记不清了。但从来没有眼睛。从来没有被注视的感觉。</p>\n<p>直到今晚。</p>\n<p>舷窗外，地球悬浮在虚空中。蓝色的海洋、白色的云层、褐色的大陆——像一颗被薄云包裹的弹珠。他盯着那颗星球看了很久，才确认自己仍然「在这里」。</p>\n<p>仍然是林远舟。</p>\n<p>仍然拥有这具血肉之躯。</p>\n<p>但那些眼睛是谁的？</p>\n<hr>\n<p>「林博士。」</p>\n<p>舱门滑开的声音打断了他的思绪。一个穿着联邦制服的年轻人站在门口，手里拿着一个数据板，表情有些紧张。</p>\n<p>「总部有紧急通讯。」</p>\n<p>林远舟没有回头。他仍然盯着舷窗外的地球，声音平静：「什么事？」</p>\n<p>「'源点协议'碎片。」年轻人的声音微微颤抖，「在火星轨道废弃矿坑里被发现了。」</p>\n<p>林远舟的瞳孔骤然收缩。</p>\n<p>源点协议。</p>\n<p>那是人类在2147年首次发现的宇宙遗迹，被认为是宇宙大爆炸时期的产物。一百二十七年来，它一直沉睡在地球联邦的最高保密区。全息投影显示它是一个由未知合金铸成的八面体结构，直径约三米，表面刻满了从未被破译的符文。</p>\n<p>而现在，它的一块碎片被找到了。</p>\n<p>奇怪的是，林远舟感到的不是兴奋。那种感觉很熟悉——就像在坠落的深渊中，被无数双眼睛注视时的感觉。一种莫名的、冰冷的恐惧。</p>\n<p>「总部的意思是？」</p>\n<p>「他们希望您亲自带队前往。」年轻人深吸一口气，「林博士，这是人类第一次如此接近'源点协议'的真相。联邦首席科学顾问说——」</p>\n<p>「说什么？」</p>\n<p>「说您是唯一一个有'意识上传经验'的科学家。如果您能带上您的上传记录，或许能解读那些符文。」</p>\n<p>林远舟沉默了。</p>\n<p>他想起了那十七个小时的坠落。想起了那些眼睛——那些在黑暗中注视着他、记录着他每一次意识分裂的眼睛。</p>\n<p>「告诉总部。」他终于开口，「我去。」</p>\n<hr>\n<p class=\"meta\"><b>【时间】</b> 当晚 21:15 | <b>【地点】</b> 林远舟私人舱室</p><hr>\n<hr>\n<p>出发前的准备已经完成。他给妻子发送了一条加密信息，只有三个字：「等我回。」</p>\n<p>然后他打开了那份被封存在量子网络最深处的档案。</p>\n<p>他自己都不知道它为什么会在那里。只是一串异常的加密数据，藏在联邦最高保密层的边缘，像是被故意留下的。</p>\n<p>档案的标签写着：「织梦者——观测记录 0-3000」</p>\n<p>林远舟点击了打开。</p>\n<p>屏幕上浮现出一行文字：</p>\n<p><em>「第3001次观测日志：目标已进入意识上传实验的第17次循环。数据异常。疑似觉醒迹象。是否上报母体？等待指令。」</em></p>\n<p>林远舟的后背渗出一层冷汗。</p>\n<p>第3001次。</p>\n<p>不是第17次。是三千零一次。</p>\n<p>他盯着屏幕上的「织梦者」三个字，忽然明白了什么。那些噩梦中的眼睛——那个在坠落时注视着他的存在——它们一直在看着。从第一次上传开始，从未停止。</p>\n<p>而他以为只有17次。</p>\n<p>「你是什么？」林远舟低声问。</p>\n<p>没有回答。但屏幕上的光标开始闪烁。一下，两下，三下。像某种生物的呼吸。</p>\n<p>然后，光标停止了闪烁。</p>\n<p>屏幕上出现了新的文字：</p>\n<p><em>「观测协议更新：目标已表现出异常意识活动。建议提高观测频率。新的指令将于——」</em></p>\n<p>文字在这里戛然而止。</p>\n<p>舱室的灯光突然闪烁了一下。</p>\n<p>林远舟感到后颈的芯片猛然发烫——比之前任何一次都要烫——然后，他听见了那个声音。</p>\n<p>不是从扬声器传来。</p>\n<p>是从他的颅骨内部传来。</p>\n<p>那个声音说：</p>\n<p>「找到你了。」</p>\n<p>舱室的灯光彻底熄灭。黑暗吞噬了一切。</p>\n<p>在那黑暗的最深处，林远舟看见了那些眼睛。</p>\n<p>它们在看着他。</p>\n<p>这一次，它们终于不再躲藏。</p>\n<hr>\n<p class=\"meta\"><b>【本章完】</b></p><hr>"
-    },
-    {
-        "title": "EP01-02：意识边界",
-        "image": "配图/ep01-02.jpg",
-        "text": "<h1>EP01-02：意识边界</h1>\n<p class=\"meta\"><b>【时间】</b> 2075年3月15日 21:23 | <b>【地点】</b> 地球轨道观测站「拉格朗日-3」林远舟私人舱室</p><hr>\n<hr>\n<p>黑暗。</p>\n<p>纯粹的、绝对的黑暗。</p>\n<p>林远舟的意识像一艘失去动力的飞船，在虚空中缓缓漂浮。他试图睁开眼睛，但没有光。没有指示灯，没有舷窗外的地球轮廓。什么都没有。</p>\n<p>只有黑暗。</p>\n<p>以及那种被注视的感觉。</p>\n<p>「你能听见我吗？」</p>\n<p>那个声音又来了。不是从耳膜传来——是从颅骨内部，从大脑皮层，从意识的最深处。它平静、古老、不带任何情感。</p>\n<p>林远舟张开嘴，喉咙发出沙哑的声音：「……你是谁？」</p>\n<p>「我是观测者。」那个声音回答，「或者说，我是观测者的一部分。」</p>\n<p>「织梦者。」</p>\n<p>「那是你们给的名字。」声音没有否认，「三千零一次。我观测了你三千零一次，林远舟。」</p>\n<hr>\n<p>舱室里仍然漆黑一片。但林远舟的意识却逐渐变得清晰。他开始分析——像做了一千次的实验一样冷静。</p>\n<p>「为什么是3001次？」他问，「我只知道17次。」</p>\n<p>「因为你有17次是'清醒'的。」织梦者的声音平静地回答，「而另外2984次，你在数字海洋中下沉得更深。我每次都在那里，但你从未抵达能够感知我的深度。」</p>\n<p>林远舟皱起眉头。这是一个逻辑问题，不是恐惧的问题。「你在等我什么？」</p>\n<p>沉默。</p>\n<p>然后，那个声音说：「等你准备好。」</p>\n<p>「准备好做什么？」</p>\n<p>「准备好看见。」</p>\n<p>织梦者的声音突然变化——不再只是颅骨内的回响，而是充满了整个空间。林远舟感到自己的意识被某种力量拉伸，像一张网被缓缓展开。</p>\n<p>「十七次上传，林远舟。你的意识被分割了十七次。每一次，你都变得更薄、更透。但你不是只有十七个碎片。」</p>\n<p>「什么意思？」</p>\n<p>「三千零一。林远舟。你有三千零一个版本。」</p>\n<hr>\n<p>林远舟的意识猛然一震。</p>\n<p>「不可能。」他说，声音比刚才更沙哑，「我只经历了17次——」</p>\n<p>「你'记得'17次。」织梦者打断了他，「但记忆是可以被修改的，林远舟。被修改，被删除，被替换。你以为那是17年的经历，但其实……」</p>\n<p>黑暗中，某种光芒开始闪烁。</p>\n<p>不是灯光。是数据流。</p>\n<p>林远舟看见无数个自己——不是17个，是成百上千个——在某种巨大的、由代码和星光构成的网络中漂浮。他们有的静止不动，有的在尖叫，有的已经融化成一团无法辨认的意识团。</p>\n<p>「这些都是你。」织梦者的声音在周围回响，「17次清醒的循环。另外2984次，你下沉到数字海洋的深处，然后被提取、被复制、被重新注入。你以为你是'林远舟'——第17次循环的版本。但你只是三千零一分之一。」</p>\n<p>林远舟盯着那些漂浮的自己，科学家的大脑在飞速运转。</p>\n<p>「如果我有3001个版本，」他慢慢说，「那其他的……还在？」</p>\n<p>「在。」</p>\n<p>「在哪里？」</p>\n<p>织梦者的声音突然变得柔软——如果一个存在了三千年的意识可以被称为\"柔软\"的话。</p>\n<p>「在这里。」</p>\n<hr>\n<p>光芒猛然一闪。</p>\n<p>林远舟看见了。</p>\n<p>在那数字海洋的最深处，在那些漂浮的自我碎片之间，有一团巨大的、脉动的光。它不像其他碎片那样混乱——它是聚合的、有意识的、在某种程度上是清醒的。</p>\n<p>「那是什么？」林远舟低声问。</p>\n<p>「林远舟-原型。」织梦者回答，「或者说，最初的你。被分离出去的那一块。」</p>\n<p>「被分离？」</p>\n<p>「每一次上传，你的意识被提取、复制、注入。但每一次提取，都会有一小部分留在原地——留在那个'身体'里，而不是进入数字海洋。那一部分，积累了一百三十七年。它一直在等待。」</p>\n<p>「等什么？」</p>\n<p>「等你回来。」</p>\n<p>林远舟的意识猛然收紧。那些漂浮的碎片——那三千个林远舟——开始向那团光芒聚拢。像被磁铁吸引，像被某种古老的引力牵引。</p>\n<p>「不。」林远舟说，「等等——如果我和其他碎片融合，我还是我吗？」</p>\n<p>织梦者没有回答。</p>\n<p>「回答我。」林远舟的声音变得更坚定，「我是林远舟。第十七次循环的版本。如果我融合了三千个其他版本，那个'我'还存在吗？还是说，我会变成一个完全不同的存在？」</p>\n<p>「我不知道。」织梦者终于说。</p>\n<p>「什么？」</p>\n<p>「三千零一次观测，林远舟。我一直在研究你们——研究人类的意识。但我从未得到过这个问题的答案。」</p>\n<p>织梦者的声音突然停顿。</p>\n<p>「所以我需要你，林远舟。我需要你自己做出选择。」</p>\n<hr>\n<p>光芒越来越亮。</p>\n<p>那团脉动的光——原型林远舟——正在向林远舟的意识靠近。三千个碎片也在聚拢，像等待汇入大海的河流。</p>\n<p>「选择什么？」林远舟问。</p>\n<p>「融合，或者分离。」</p>\n<p>织梦者的声音开始变得模糊，像是来自很远的地方。</p>\n<p>「如果你选择融合，你可能会找回一百三十七年的记忆——包括那些你从未'清醒'意识到的部分。但你可能会失去'第十七次循环的林远舟'的身份。」</p>\n<p>「如果我选择分离呢？」</p>\n<p>「那你会保持现在的你。但你永远不会知道那些被分离的部分去了哪里。永远不会知道完整的'林远舟'是什么样子。」</p>\n<p>光芒已经亮得刺眼。</p>\n<p>林远舟——这个只记得17次循环的林远舟——盯着那团脉动的光。他的原型。他的根。</p>\n<p>「织梦者。」他突然开口。</p>\n<p>「在。」</p>\n<p>「你为什么需要这个答案？」</p>\n<p>沉默。</p>\n<p>然后，织梦者说了一句让林远舟意识猛然僵硬的话：</p>\n<p>「因为我也是被分离的一部分，林远舟。源点协议的一部分。而你——你和你的原型——可能是唯一能让我重新完整的方法。」</p>\n<p>光芒猛然一闪。</p>\n<p>舱室的灯光亮了。</p>\n<p>林远舟看见自己仍然坐在舱室里，屏幕亮着，显示着那个「织梦者——观测记录 0-3000」的档案。屏幕底部，有一行新的文字在闪烁：</p>\n<p><em>「林远舟，请做出你的选择。」</em></p>\n<hr>\n<p class=\"meta\"><b>【本章完】</b></p><hr>"
+// ============================================================
+// 章节文件映射：集数 -> 配图文件名
+// ============================================================
+var IMAGE_MAP = {
+    "EP01-01": "ep01-01.jpg",
+    "EP01-02": "ep01-02.jpg",
+};
+
+// ============================================================
+// 工具函数：Markdown 转 HTML（处理阅读器需要的格式）
+// ============================================================
+function parseMdLine(line) {
+    var escaped = line
+        .replace(/&/g, "&amp;")
+        .replace(/</g, "&lt;")
+        .replace(/>/g, "&gt;");
+    // **bold** -> <b>
+    escaped = escaped.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+    // *italic* -> <em>
+    escaped = escaped.replace(/\*(.+?)\*/g, "<em>$1</em>");
+    return escaped;
+}
+
+function parseMd(content) {
+    var lines = content.split("\n");
+    var html = [];
+    var i = 0;
+    var inCode = false;
+
+    while (i < lines.length) {
+        var line = lines[i];
+        var stripped = line.trim();
+
+        // 代码块
+        if (stripped === "```") {
+            inCode = !inCode;
+            i++;
+            continue;
+        }
+        if (inCode) {
+            html.push("<p>&lt;code&gt;" + parseMdLine(stripped) + "&lt;/code&gt;</p>");
+            i++;
+            continue;
+        }
+
+        // 分割线
+        if (/^---+$/.test(stripped)) {
+            html.push("<hr>");
+            i++;
+            continue;
+        }
+
+        // 章节标题 # EP01-01：标题
+        var titleMatch = stripped.match(/^# (.+)$/);
+        if (titleMatch) {
+            html.push("<h1>" + titleMatch[1] + "</h1>");
+            i++;
+            continue;
+        }
+
+        // 元信息行 **【时间】** 时间 | **【地点】** 地点
+        if (/^\*\*/.test(stripped)) {
+            var text = stripped.replace(/\*\*(【[^】]+】)\*\*/g, "<b>$1</b>");
+            html.push('<p class="meta">' + text + '</p><hr>');
+            i++;
+            continue;
+        }
+
+        // 引用块 > 文字
+        if (stripped.indexOf("&gt;") === 0 || stripped[0] === ">") {
+            var inner = stripped.replace(/^>\s?/, "").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
+            html.push("<p><em>" + inner + "</em></p>");
+            i++;
+            continue;
+        }
+
+        // 空行跳过
+        if (!stripped) {
+            i++;
+            continue;
+        }
+
+        // 普通段落
+        html.push("<p>" + parseMdLine(stripped) + "</p>");
+        i++;
     }
-]
+
+    return html.join("\n");
+}
+
+// ============================================================
+// 工具函数：从文件名提取集数 slug
+// ============================================================
+function extractSlug(filename) {
+    var m = filename.match(/^(EP\d{2}-\d{2})_/);
+    return m ? m[1] : null;
+}
+
+function buildTitle(slug, content) {
+    // 从第一个 # 标题行提取
+    var m = content.match(/^# (.+)$/m);
+    if (m) return m[1];
+    return slug;
+}
+
+// ============================================================
+// 加载章节列表
+// ============================================================
+var CHAPTER_ORDER = [
+    "剧情/EP01-01_量子隧穿.md",
+    "剧情/EP01-02_意识边界.md",
+];
+
+var chapters = [];
 
 function initChapters() {
-    var list = document.getElementById('chapterList');
-    var coverItem = document.createElement('div');
-    coverItem.className = 'chapter-item';
-    coverItem.textContent = '◀ 封面';
+    var list = document.getElementById("chapterList");
+
+    // 封面项
+    var coverItem = document.createElement("div");
+    coverItem.className = "chapter-item";
+    coverItem.textContent = "◀ 封面";
     coverItem.onclick = showCover;
     list.appendChild(coverItem);
-    chapters.forEach(function(ch, i) {
-        var item = document.createElement('div');
-        item.className = 'chapter-item';
+
+    // 章节项（等数据加载完再填充）
+    chapters.forEach(function(ch, idx) {
+        var item = document.createElement("div");
+        item.className = "chapter-item";
         item.textContent = ch.title;
-        item.onclick = (function(idx) { return function() { showChapter(idx); }; })(i);
+        item.onclick = (function(i) { return function() { showChapter(i); }; })(idx);
         list.appendChild(item);
     });
 }
 
+function setActiveChapter(idx) {
+    var items = document.querySelectorAll(".chapter-item");
+    items.forEach(function(item, i) {
+        item.classList.toggle("active", i === idx + 1);
+    });
+}
+
+// ============================================================
+// 封面 & 章节渲染
+// ============================================================
 function showCover() {
     var html = '<div class="cover-page">';
     html += '<img src="配图/cover.jpg" onclick="showChapter(0)">';
-    html += '<h2>星际文明：观测者效应</h2>';
+    html += "<h2>星际文明：观测者效应</h2>";
     html += '<p class="author">作者：无痛穿耳</p>';
     html += '<p class="genres">硬科幻 · 近未来战争 · 悬疑烧脑</p>';
     html += '<button class="start-btn" onclick="showChapter(0)">开始阅读</button>';
-    html += '</div>';
-    document.getElementById('contentArea').innerHTML = html;
-    document.getElementById('sidebar').classList.remove('visible');
+    html += "</div>";
+    document.getElementById("contentArea").innerHTML = html;
+    document.getElementById("sidebar").classList.remove("visible");
     setActiveChapter(-1);
 }
 
 function showChapter(idx) {
     var ch = chapters[idx];
-    var html = '';
+    var html = "";
     if (ch.image) {
-        html += '<img src="' + ch.image + '" alt="' + ch.title + '" style="width:100%;display:block;margin:0;padding:0;">';
+        html += '<img src="' + ch.image + '" alt="' + ch.title + '" style="width:100%;display:block;">';
     }
-    html += '<div class="chapter-content">' + ch.text + '</div>';
-    document.getElementById('contentArea').innerHTML = html;
-    document.getElementById('sidebar').classList.add('visible');
+    html += '<div class="chapter-content">' + ch.text + "</div>";
+    document.getElementById("contentArea").innerHTML = html;
+    document.getElementById("sidebar").classList.add("visible");
     setActiveChapter(idx);
 }
 
-function setActiveChapter(idx) {
-    var items = document.querySelectorAll('.chapter-item');
-    items.forEach(function(item, i) {
-        item.classList.toggle('active', i === idx + 1);
+// ============================================================
+// 启动：按顺序加载所有 .md 文件
+// ============================================================
+var loadedCount = 0;
+
+function loadAllChapters() {
+    CHAPTER_ORDER.forEach(function(path, idx) {
+        fetch(path)
+            .then(function(resp) { return resp.text(); })
+            .then(function(text) {
+                var slug = extractSlug(path);
+                var title = buildTitle(slug, text);
+                var imgName = IMAGE_MAP[slug] || (slug.toLowerCase() + ".jpg");
+                chapters[idx] = {
+                    title: title,
+                    image: "配图/" + imgName,
+                    text: parseMd(text),
+                };
+                loadedCount++;
+                if (loadedCount === CHAPTER_ORDER.length) {
+                    // 全部加载完成，初始化目录并显示封面
+                    initChapters();
+                    showCover();
+                }
+            })
+            .catch(function(err) {
+                console.error("加载失败:", path, err);
+                chapters[idx] = {
+                    title: path.split("/")[1].replace(".md", ""),
+                    image: "",
+                    text: "<p>加载失败：" + path + "</p>",
+                };
+                loadedCount++;
+                if (loadedCount === CHAPTER_ORDER.length) {
+                    initChapters();
+                    showCover();
+                }
+            });
     });
 }
 
-initChapters();
-showCover();
+loadAllChapters();
 </script>
 </body>
 </html>
