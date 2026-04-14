@@ -137,7 +137,7 @@ function showChapter(idx) {
     html += '<div class="chapter-content">' + ch.text + '</div>';
     document.getElementById('contentArea').innerHTML = html;
     document.querySelector('.sidebar').classList.remove('hidden');
-    document.getElementById('bottomNav').style.display = 'flex';
+    document.getElementById('bottomNav').style.display = window.matchMedia('(max-width: 768px)').matches ? 'flex' : 'none';
     document.getElementById('navTitle').textContent = ch.title;
     document.getElementById('prevBtn').style.visibility = idx > 0 ? 'visible' : 'hidden';
     document.getElementById('nextBtn').style.visibility = idx < chapters.length - 1 ? 'visible' : 'hidden';
