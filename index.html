@@ -130,6 +130,7 @@ function showCover() {
     html += '</div>';
     document.getElementById('contentArea').innerHTML = html;
     document.querySelector('.sidebar').classList.add('hidden');
+    document.getElementById('mobileNav').style.display = 'none';
 }
 
 function showChapter(idx) {
@@ -141,6 +142,7 @@ function showChapter(idx) {
     html += '<div class="chapter-content">' + ch.text + '</div>';
     document.getElementById('contentArea').innerHTML = html;
     document.querySelector('.sidebar').classList.remove('hidden');
+    document.getElementById('mobileNav').style.display = 'block';
     document.querySelectorAll('.chapter-item').forEach(function(item, i) {
         item.classList.remove('active');
         if (i === idx + 1) { item.classList.add('active'); }
