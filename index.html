@@ -2,37 +2,201 @@
 <html lang="zh-CN">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>星际文明：观测者效应 - 阅读器</title>
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
-.header{background:linear-gradient(135deg,#2c2c2c,#1a1a1a);color:#f5f0e6;padding:25px;text-align:center;position:fixed;top:0;left:0;right:0;z-index:100}
-.header h1{font-size:1.6rem;letter-spacing:4px}
-.pencil-line{height:2px;background:linear-gradient(90deg,transparent,#8b7355,#6b5a47,#8b7355,#6b5a47,#8b7355,transparent);margin:12px auto;max-width:300px}
-.subtitle{font-size:0.85rem;color:#a09080;font-style:italic;letter-spacing:2px}
-.container{display:flex;margin-top:120px;padding:25px;gap:25px;max-width:1200px;margin-left:auto;margin-right:auto}
-.sidebar{width:220px;flex-shrink:0;background:#faf7f0;border:1px solid #d4c9b5;border-radius:8px;padding:20px;position:sticky;top:145px;max-height:calc(100vh - 180px);overflow-y:auto;display:none}
-.sidebar.visible{display:block}
-.sidebar h2{font-size:0.9rem;color:#5c4d3a;border-bottom:1px solid #d4c9b5;padding-bottom:10px;margin-bottom:12px;letter-spacing:1px}
-.chapter-item{padding:10px 12px;cursor:pointer;color:#5c5040;font-size:0.85rem;border-left:3px solid transparent;transition:all 0.2s;border-radius:0 4px 4px 0;margin-bottom:3px}
-.chapter-item:hover{background:rgba(139,115,85,0.12);border-left-color:#a08060;color:#3d3d3d}
-.chapter-item.active{background:rgba(139,115,85,0.18);border-left-color:#6b5a47;font-weight:700;color:#2c2c2c}
-.content{flex:1;background:#faf7f0;border:1px solid #d4c9b5;border-radius:8px;overflow:hidden}
-.chapter-content{padding:30px 45px}
-.chapter-content h1{font-size:1.5rem;text-align:center;color:#2c2c2c;margin-bottom:8px;letter-spacing:2px}
-.chapter-content .meta{text-align:center;font-size:0.8rem;color:#999;margin-bottom:30px;padding-bottom:20px;border-bottom:1px solid #e5dfd0}
-.chapter-content hr{border:none;height:1px;background:linear-gradient(90deg,transparent,#c4b9a5,transparent);margin:25px 0}
-.chapter-content p{line-height:1.8;margin-bottom:1em;font-size:1.1rem;color:#3c3c3c;padding:4px 6px;border-radius:3px;text-align:justify}
-.chapter-content p:hover{background:rgba(139,115,85,0.08)}
-.chapter-content .chapter-end{text-align:center;font-style:italic;color:#a09080;margin-top:35px;padding-top:20px;border-top:1px dashed #d4c9b5;font-size:0.85rem}
-.cover-page{text-align:center;padding:40px 20px}
-.cover-page img{max-width:100%;max-height:60vh;border:1px solid #d4c9b5;box-shadow:3px 3px 10px rgba(0,0,0,0.1);cursor:pointer;display:block;margin:0 auto}
-.cover-page h2{font-size:1.8rem;color:#2c2c2c;margin:30px 0 10px;letter-spacing:4px}
-.cover-page .author{font-size:0.9rem;color:#888;margin-bottom:20px}
-.cover-page .genres{font-size:0.85rem;color:#a09080;margin-bottom:30px}
-.start-btn{display:inline-block;padding:15px 40px;background:linear-gradient(135deg,#3d3d3d,#2a2a2a);color:#f5f0e6;border:none;border-radius:30px;font-size:1rem;cursor:pointer;transition:all 0.3s}
-.start-btn:hover{background:linear-gradient(135deg,#5c4d3a,#3d3d3d);transform:translateY(-2px);box-shadow:0 4px 15px rgba(0,0,0,0.2)}
-.loading{text-align:center;padding:60px;color:#8b7355;font-size:1rem}
+:root {
+    --header-height: 90px;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+    font-family: 'Noto Serif SC', serif;
+    background: #f5f0e6;
+    min-height: 100vh;
+}
+.header {
+    background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
+    color: #f5f0e6;
+    padding: 25px;
+    text-align: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 100;
+    height: var(--header-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.header h1 { font-size: 1.6rem; letter-spacing: 4px; }
+.pencil-line {
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #8b7355, #6b5a47, #8b7355, #6b5a47, #8b7355, transparent);
+    margin: 12px auto;
+    max-width: 300px;
+}
+.subtitle {
+    font-size: 0.85rem;
+    color: #a09080;
+    font-style: italic;
+    letter-spacing: 2px;
+}
+.container {
+    display: flex;
+    margin-top: var(--header-height);
+    padding: 25px;
+    gap: 25px;
+    max-width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.sidebar {
+    width: 220px;
+    flex-shrink: 0;
+    background: #faf7f0;
+    border: 1px solid #d4c9b5;
+    border-radius: 8px;
+    padding: 20px;
+    position: sticky;
+    top: var(--header-height);
+    height: calc(100vh - var(--header-height));
+    overflow-y: auto;
+    display: none;
+}
+.sidebar.visible { display: block; }
+.sidebar h2 {
+    font-size: 0.9rem;
+    color: #5c4d3a;
+    border-bottom: 1px solid #d4c9b5;
+    padding-bottom: 10px;
+    margin-bottom: 12px;
+    letter-spacing: 1px;
+}
+.chapter-item {
+    padding: 10px 12px;
+    cursor: pointer;
+    color: #5c5040;
+    font-size: 0.85rem;
+    border-left: 3px solid transparent;
+    transition: all 0.2s;
+    border-radius: 0 4px 4px 0;
+    margin-bottom: 3px;
+}
+.chapter-item:hover {
+    background: rgba(139,115,85,0.12);
+    border-left-color: #a08060;
+    color: #3d3d3d;
+}
+.chapter-item.active {
+    background: rgba(139,115,85,0.18);
+    border-left-color: #6b5a47;
+    font-weight: 700;
+    color: #2c2c2c;
+}
+.content { flex: 1; background: #faf7f0; border: 1px solid #d4c9b5; border-radius: 8px; overflow: hidden; }
+.chapter-content { padding: 30px 45px 0; }
+.chapter-content h1 {
+    font-size: 1.5rem;
+    text-align: center;
+    color: #2c2c2c;
+    margin-bottom: 8px;
+    letter-spacing: 2px;
+}
+.chapter-content .meta {
+    text-align: center;
+    font-size: 0.8rem;
+    color: #999;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #e5dfd0;
+}
+.chapter-content hr {
+    border: none;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #c4b9a5, #c4b9a5, transparent);
+    margin: 25px 0;
+}
+.chapter-content p {
+    line-height: 1.8;
+    margin-bottom: 1em;
+    font-size: 1.1rem;
+    color: #3c3c3c;
+    padding: 4px 6px;
+    border-radius: 3px;
+    text-align: justify;
+}
+.chapter-content p:hover { background: rgba(139,115,85,0.08); }
+.chapter-content .chapter-end {
+    text-align: center;
+    font-style: italic;
+    color: #a09080;
+    margin-top: 35px;
+    padding-top: 20px;
+    border-top: 1px dashed #d4c9b5;
+    font-size: 0.85rem;
+}
+.cover-page { text-align: center; padding: 40px 20px; }
+.cover-page img {
+    max-width: 100%;
+    max-height: 60vh;
+    border: 1px solid #d4c9b5;
+    box-shadow: 3px 3px 10px rgba(0,0,0,0.1);
+    cursor: pointer;
+    display: block;
+    margin: 0 auto;
+}
+.cover-page h2 { font-size: 1.8rem; color: #2c2c2c; margin: 30px 0 10px; letter-spacing: 4px; }
+.cover-page .author { font-size: 0.9rem; color: #888; margin-bottom: 20px; }
+.cover-page .genres { font-size: 0.85rem; color: #a09080; margin-bottom: 30px; }
+.start-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: linear-gradient(135deg, #3d3d3d, #2a2a2a);
+    color: #f5f0e6;
+    border: none;
+    border-radius: 30px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+.start-btn:hover {
+    background: linear-gradient(135deg, #5c4d3a, #3d3d3d);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+.loading { text-align: center; padding: 60px; color: #8b7355; font-size: 1rem; }
+.page-nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 25px 0;
+    margin-top: 20px;
+    border-top: 1px dashed #d4c9b5;
+}
+.page-nav-btn {
+    padding: 10px 24px;
+    background: linear-gradient(135deg, #3d3d3d, #2a2a2a);
+    color: #f5f0e6;
+    border: none;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    font-family: 'Noto Serif SC', serif;
+}
+.page-nav-btn:hover:not(:disabled) {
+    background: linear-gradient(135deg, #5c4d3a, #3d3d3d);
+    transform: translateY(-1px);
+}
+.page-nav-btn:disabled {
+    visibility: hidden;
+}
+.page-nav-end {
+    font-size: 0.85rem;
+    color: #a09080;
+    font-style: italic;
+}
 </style>
 </head>
 <body>
@@ -50,198 +214,88 @@ body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
         <div class="loading">加载中...</div>
     </div>
 </div>
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 <script>
 // ============================================================
-// 章节文件映射：集数 -> 配图文件名
-// ============================================================
-var IMAGE_MAP = {
-    "EP01-01": "ep01-01.jpg",
-    "EP01-02": "ep01-02.jpg",
-};
-
-// ============================================================
-// 工具函数：Markdown 转 HTML（处理阅读器需要的格式）
-// ============================================================
-function parseMdLine(line) {
-    var escaped = line
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;");
-    // **bold** -> <b>
-    escaped = escaped.replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
-    // *italic* -> <em>
-    escaped = escaped.replace(/\*(.+?)\*/g, "<em>$1</em>");
-    return escaped;
-}
-
-function parseMd(content) {
-    var lines = content.split("\n");
-    var html = [];
-    var i = 0;
-    var inCode = false;
-
-    while (i < lines.length) {
-        var line = lines[i];
-        var stripped = line.trim();
-
-        // 代码块
-        if (stripped === "```") {
-            inCode = !inCode;
-            i++;
-            continue;
-        }
-        if (inCode) {
-            html.push("<p>&lt;code&gt;" + parseMdLine(stripped) + "&lt;/code&gt;</p>");
-            i++;
-            continue;
-        }
-
-        // 分割线
-        if (/^---+$/.test(stripped)) {
-            html.push("<hr>");
-            i++;
-            continue;
-        }
-
-        // 章节标题 # EP01-01：标题
-        var titleMatch = stripped.match(/^# (.+)$/);
-        if (titleMatch) {
-            html.push("<h1>" + titleMatch[1] + "</h1>");
-            i++;
-            continue;
-        }
-
-        // 元信息行 **【时间】** 时间 | **【地点】** 地点
-        if (/^\*\*/.test(stripped)) {
-            var text = stripped.replace(/\*\*(【[^】]+】)\*\*/g, "<b>$1</b>");
-            html.push('<p class="meta">' + text + '</p><hr>');
-            i++;
-            continue;
-        }
-
-        // 引用块 > 文字
-        if (stripped.indexOf("&gt;") === 0 || stripped[0] === ">") {
-            var inner = stripped.replace(/^>\s?/, "").replace(/\*\*(.+?)\*\*/g, "<b>$1</b>");
-            html.push("<p><em>" + inner + "</em></p>");
-            i++;
-            continue;
-        }
-
-        // 空行跳过
-        if (!stripped) {
-            i++;
-            continue;
-        }
-
-        // 普通段落
-        html.push("<p>" + parseMdLine(stripped) + "</p>");
-        i++;
-    }
-
-    return html.join("\n");
-}
-
-// ============================================================
-// 工具函数：从文件名提取集数 slug
-// ============================================================
-function extractSlug(filename) {
-    var m = filename.match(/^(EP\d{2}-\d{2})_/);
-    return m ? m[1] : null;
-}
-
-function buildTitle(slug, content) {
-    // 从第一个 # 标题行提取
-    var m = content.match(/^# (.+)$/m);
-    if (m) return m[1];
-    return slug;
-}
-
-// ============================================================
-// 加载章节列表
+// 1. 章节顺序（只需改这一处）
 // ============================================================
 var CHAPTER_ORDER = [
-    "https://power32m.github.io/observer-effect/chapters/EP01-01.md",
-    "https://power32m.github.io/observer-effect/chapters/EP01-02.md",
+    "chapters/EP01-01.md",
+    "chapters/EP01-02.md",
 ];
 
+// ============================================================
+// 2. 根据集-章号自动推导配图路径（无需手动维护）
+// "EP01-01" → "images/ep0101.jpg"
+// "EP02-03" → "images/ep0203.jpg"
+// ============================================================
+function getImagePath(chapterId) {
+    // 去掉 EP 前缀，把 "01-01" 变成 "0101"，拼出 "images/ep0101.jpg"
+    var num = chapterId.replace("EP", "").replace("-", "");
+    return "images/ep" + num.toLowerCase() + ".jpg";
+}
+
+// ============================================================
+// 3. marked.js 配置
+// ============================================================
+marked.setOptions({
+    breaks: true,
+    gfm: true
+});
+
+// ============================================================
+// 4. 预处理函数：处理【时间】【地点】等特殊格式
+// marked.js 处理粗体时会丢失我们的自定义格式，所以先替换掉
+// ============================================================
+function preprocessMeta(md) {
+    // 匹配形如 **【时间】** 2075年3月15日 | **【地点】** 拉格朗日-3
+    // 整行替换为 <p class="meta">...</p>\n\n---
+    return md.replace(
+        /^\*\*(【[^】]+】)\*\*[^\n]+\n?$/gm,
+        function(match) {
+            // 把剩余的 **bold** 也转成 <b>，再包一层 meta
+            var text = match.replace(/\*\*(【[^】]+】)\*\*/g, '$1');
+            text = text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
+            return '<p class="meta">' + text + '</p>\n\n---';
+        }
+    );
+}
+
+// ============================================================
+// 5. 解析 Markdown（含预处理 → marked.js 两步）
+// ============================================================
+function parseMd(content) {
+    var preprocessed = preprocessMeta(content);
+    return marked.parse(preprocessed);
+}
+
+// ============================================================
+// 6. 全局状态
+// ============================================================
 var chapters = [];
-
-function initChapters() {
-    var list = document.getElementById("chapterList");
-
-    // 封面项
-    var coverItem = document.createElement("div");
-    coverItem.className = "chapter-item";
-    coverItem.textContent = "◀ 封面";
-    coverItem.onclick = showCover;
-    list.appendChild(coverItem);
-
-    // 章节项（等数据加载完再填充）
-    chapters.forEach(function(ch, idx) {
-        var item = document.createElement("div");
-        item.className = "chapter-item";
-        item.textContent = ch.title;
-        item.onclick = (function(i) { return function() { showChapter(i); }; })(idx);
-        list.appendChild(item);
-    });
-}
-
-function setActiveChapter(idx) {
-    var items = document.querySelectorAll(".chapter-item");
-    items.forEach(function(item, i) {
-        item.classList.toggle("active", i === idx + 1);
-    });
-}
-
-// ============================================================
-// 封面 & 章节渲染
-// ============================================================
-function showCover() {
-    var html = '<div class="cover-page">';
-    html += '<img src="配图/cover.jpg" onclick="showChapter(0)">';
-    html += "<h2>星际文明：观测者效应</h2>";
-    html += '<p class="author">作者：无痛穿耳</p>';
-    html += '<p class="genres">硬科幻 · 近未来战争 · 悬疑烧脑</p>';
-    html += '<button class="start-btn" onclick="showChapter(0)">开始阅读</button>';
-    html += "</div>";
-    document.getElementById("contentArea").innerHTML = html;
-    document.getElementById("sidebar").classList.remove("visible");
-    setActiveChapter(-1);
-}
-
-function showChapter(idx) {
-    var ch = chapters[idx];
-    var html = "";
-    if (ch.image) {
-        html += '<img src="' + ch.image + '" alt="' + ch.title + '" style="width:100%;display:block;">';
-    }
-    html += '<div class="chapter-content">' + ch.text + "</div>";
-    document.getElementById("contentArea").innerHTML = html;
-    document.getElementById("sidebar").classList.add("visible");
-    setActiveChapter(idx);
-}
-
-// ============================================================
-// 启动：按顺序加载所有 .md 文件
-// ============================================================
 var loadedCount = 0;
 
+// ============================================================
+// 7. 加载所有章节
+// ============================================================
 function loadAllChapters() {
     CHAPTER_ORDER.forEach(function(path, idx) {
         fetch(path)
-            .then(function(resp) { return resp.text(); })
+            .then(function(resp) {
+                if (!resp.ok) throw new Error("HTTP " + resp.status);
+                return resp.text();
+            })
             .then(function(text) {
                 var slug = extractSlug(path);
                 var title = buildTitle(slug, text);
-                var imgName = IMAGE_MAP[slug] || (slug.toLowerCase() + ".jpg");
                 chapters[idx] = {
                     title: title,
-                    image: "配图/" + imgName,
+                    image: getImagePath(slug),
                     text: parseMd(text),
+                    slug: slug
                 };
                 loadedCount++;
                 if (loadedCount === CHAPTER_ORDER.length) {
-                    // 全部加载完成，初始化目录并显示封面
                     initChapters();
                     showCover();
                 }
@@ -251,7 +305,11 @@ function loadAllChapters() {
                 chapters[idx] = {
                     title: path.split("/")[1].replace(".md", ""),
                     image: "",
-                    text: "<p>加载失败：" + path + "</p>",
+                    text: '<div style="text-align:center;padding:60px;color:#8b7355">' +
+                          '<p>章节加载失败，请检查网络后刷新页面。</p>' +
+                          '<p style="font-size:0.8rem;margin-top:10px;color:#a09080">' + path + '</p>' +
+                          '</div>',
+                    slug: ""
                 };
                 loadedCount++;
                 if (loadedCount === CHAPTER_ORDER.length) {
@@ -262,6 +320,120 @@ function loadAllChapters() {
     });
 }
 
+// ============================================================
+// 8. 从路径提取集-章标识符，如 "chapters/EP01-01.md" → "EP01-01"
+// ============================================================
+function extractSlug(path) {
+    var filename = path.split("/").pop();
+    return filename.replace(".md", "");
+}
+
+// ============================================================
+// 9. 从 Markdown 内容构建标题（去掉 # 前缀）
+// ============================================================
+function buildTitle(slug, text) {
+    var lines = text.split("\n");
+    for (var i = 0; i < lines.length; i++) {
+        var m = lines[i].match(/^# (.+)$/);
+        if (m) return m[1];
+    }
+    return slug;
+}
+
+// ============================================================
+// 10. 初始化章节列表
+// ============================================================
+function initChapters() {
+    var list = document.getElementById("chapterList");
+
+    // 封面入口
+    var coverItem = document.createElement("div");
+    coverItem.className = "chapter-item";
+    coverItem.textContent = "◀ 封面";
+    coverItem.onclick = showCover;
+    list.appendChild(coverItem);
+
+    // 各章节入口
+    chapters.forEach(function(ch, idx) {
+        var item = document.createElement("div");
+        item.className = "chapter-item";
+        item.textContent = ch.slug || ch.title;
+        item.onclick = (function(i) {
+            return function() { showChapter(i); };
+        })(idx);
+        list.appendChild(item);
+    });
+}
+
+// ============================================================
+// 11. 显示封面
+// ============================================================
+function showCover() {
+    var html = '<div class="cover-page">';
+    html += '<img src="images/cover.jpg" onclick="showChapter(0)">';
+    html += "<h2>星际文明：观测者效应</h2>";
+    html += '<p class="author">作者：无痛穿耳</p>';
+    html += '<p class="genres">硬科幻 · 近未来战争 · 悬疑烧脑</p>';
+    html += '<button class="start-btn" onclick="showChapter(0)">开始阅读</button>';
+    html += "</div>";
+    document.getElementById("contentArea").innerHTML = html;
+    document.getElementById("sidebar").classList.remove("visible");
+    setActiveChapter(-1);
+}
+
+// ============================================================
+// 12. 显示指定章节
+// ============================================================
+function showChapter(idx) {
+    var ch = chapters[idx];
+    if (!ch) return;
+
+    var prevIdx = idx - 1;
+    var nextIdx = idx + 1;
+    var prevBtn = '';
+    var nextBtn = '';
+
+    // 上一章按钮（第一章不显示）
+    if (prevIdx >= 0) {
+        prevBtn = '<button class="page-nav-btn" onclick="showChapter(' + prevIdx + ')">← 上一章</button>';
+    } else {
+        prevBtn = '<button class="page-nav-btn" disabled></button>';
+    }
+
+    // 下一章按钮（最后一章显示"已读完"提示）
+    if (nextIdx < chapters.length) {
+        nextBtn = '<button class="page-nav-btn" onclick="showChapter(' + nextIdx + ')">下一章 →</button>';
+    } else {
+        nextBtn = '<span class="page-nav-end">— 已读完 —</span>';
+    }
+
+    var html = '<div class="chapter-content">';
+    if (ch.image) {
+        html += '<img src="' + ch.image + '" style="width:100%;max-height:50vh;object-fit:cover;display:block;margin:0 auto;border-radius:4px">';
+    }
+    html += ch.text;
+    html += '<div class="page-nav">' + prevBtn + nextBtn + '</div>';
+    html += '</div>';
+
+    document.getElementById("contentArea").innerHTML = html;
+    document.getElementById("sidebar").classList.add("visible");
+    setActiveChapter(idx);
+    window.scrollTo(0, 0);
+}
+
+// ============================================================
+// 13. 高亮当前章节
+// ============================================================
+function setActiveChapter(idx) {
+    var items = document.querySelectorAll(".chapter-item");
+    items.forEach(function(item, i) {
+        item.classList.toggle("active", i === idx + 1);
+    });
+}
+
+// ============================================================
+// 14. 启动
+// ============================================================
 loadAllChapters();
 </script>
 </body>
