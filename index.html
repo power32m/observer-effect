@@ -249,11 +249,14 @@ marked.setOptions({
 // ============================================================
 function preprocessMeta(md) {
     // 匹配形如 **【时间】** 2075年3月15日 | **【地点】** 拉格朗日-3
-    // 整行替换为 <p class="meta">...</p>\n\n---
+    // 整行替换为 <p class="meta">...</p>
+    // 同时删除紧跟其后的 ---
     return md.replace(
-        /^\*\*(【[^】]+】)\*\*[^\n]+\n?$/gm,
+        /^\*\*(【[^】]+】)\*\*[^\n]+\n?|^---\n?/gm,
         function(match) {
-            // 把剩余的 **bold** 也转成 <b>，再包一层 meta
+            // 如果匹配到的是 ---，删掉它
+            if (match.trim() === '---') return '';
+            // 否则是 meta 行，转换为 <p class="meta">
             var text = match.replace(/\*\*(【[^】]+】)\*\*/g, '$1');
             text = text.replace(/\*\*(.+?)\*\*/g, '<b>$1</b>');
             return '<p class="meta">' + text + '</p>';
