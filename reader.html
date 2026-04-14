@@ -396,11 +396,11 @@ body {
     </div>
     <div class="content" id="contentArea">
         <div class="cover-page" id="coverPage">
-            <img src="配图/cover.jpg" alt="星际文明：观测者效应" onclick="showChapter(0)" style="cursor:pointer;">
+            <img src="配图/cover.jpg" id="coverImg" style="cursor:pointer;">
             <h2>星际文明：观测者效应</h2>
             <p class=author>作者：AI 创作</p>
             <p class=genres>硬科幻 · 近未来战争 · 悬疑烧脑</p>
-            <button class=start-btn onclick="showChapter(0)">开始阅读</button>
+            <button class=start-btn id="startBtn">开始阅读</button>
         </div>
     </div>
 </div>
@@ -450,13 +450,15 @@ function initChapters() {
 function showCover() {
     var html = '';
     html += '<div class="cover-page" id="coverPage">';
-    html += '<img src="配图/cover.jpg" alt="星际文明：观测者效应" onclick="showChapter(0)" style="cursor:pointer;">';
+    html += '<img src="配图/cover.jpg" alt="星际文明：观测者效应" id="coverImg" style="cursor:pointer;">';
     html += '<h2>星际文明：观测者效应</h2>';
     html += '<p class=author>作者：AI 创作</p>';
     html += '<p class=genres>硬科幻 · 近未来战争 · 悬疑烧脑</p>';
-    html += '<button class=start-btn onclick="showChapter(0)">开始阅读</button>';
+    html += '<button class=start-btn id="startBtn">开始阅读</button>';
     html += '</div>';
     document.getElementById('contentArea').innerHTML = html;
+    document.getElementById('coverImg').addEventListener('click', function() { showChapter(0); });
+    document.getElementById('startBtn').addEventListener('click', function() { showChapter(0); });
     document.querySelectorAll('.chapter-item').forEach(function(item) {
         item.classList.remove('active');
     });
@@ -479,6 +481,10 @@ function showChapter(idx) {
 initChapters();
 // 默认显示封面，不自动加载第一章
 // showChapter(0);
+
+// 封面点击事件
+document.getElementById('coverImg').addEventListener('click', function() { showChapter(0); });
+document.getElementById('startBtn').addEventListener('click', function() { showChapter(0); });
 </script>
 
 </body>
