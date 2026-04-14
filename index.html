@@ -6,7 +6,7 @@
 <title>星际文明：观测者效应 - 阅读器</title>
 <style>
 :root {
-    --header-height: 90px;
+    --header-height: 78px;
 }
 * { margin: 0; padding: 0; box-sizing: border-box; }
 body {
@@ -17,27 +17,27 @@ body {
 .header {
     background: linear-gradient(135deg, #2c2c2c, #1a1a1a);
     color: #f5f0e6;
-    padding: 25px;
+    padding: 18px 25px 16px;
     text-align: center;
     position: fixed;
     top: 0;
     left: 0;
     right: 0;
     z-index: 100;
-    height: var(--header-height);
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    align-items: center;
+    gap: 6px;
 }
-.header h1 { font-size: 1.6rem; letter-spacing: 4px; }
+.header h1 { font-size: 1.5rem; letter-spacing: 3px; }
 .pencil-line {
     height: 2px;
     background: linear-gradient(90deg, transparent, #8b7355, #6b5a47, #8b7355, #6b5a47, #8b7355, transparent);
-    margin: 12px auto;
-    max-width: 300px;
+    width: 100%;
+    max-width: 280px;
 }
 .subtitle {
-    font-size: 0.85rem;
+    font-size: 0.78rem;
     color: #a09080;
     font-style: italic;
     letter-spacing: 2px;
@@ -59,8 +59,8 @@ body {
     border-radius: 8px;
     padding: 20px;
     position: sticky;
-    top: var(--header-height);
-    height: calc(100vh - var(--header-height));
+    top: 78px;
+    height: calc(100vh - 78px);
     overflow-y: auto;
     display: none;
 }
