@@ -46,9 +46,8 @@ body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
 .episode-title{font-size:0.75rem;margin:6px 0 4px}
 .chapter-item{padding:5px 10px;font-size:0.8rem}
 .sidebar.hidden{display:none}
-.content{width:100%;border:none;border-radius:0;min-height:calc(100vh - 60px)}
-.chapter-hero img{width:100%;border-radius:0}
-.chapter-content{padding:15px}
+.content{width:100%;border:none;border-radius:0;min-height:calc(100vh - 60px);display:flex;flex-direction:column}
+.chapter-content{flex:1}
 .chapter-content h1{font-size:1.15rem;text-align:left}
 .chapter-content p{font-size:1rem;line-height:1.8;text-align:left;margin-bottom:1.2em}
 .chapter-content .meta{font-size:0.75rem;text-align:left}
@@ -60,6 +59,16 @@ body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
 .cover-page .author{font-size:0.85rem;margin-bottom:10px}
 .cover-page .genres{font-size:0.8rem;margin-bottom:20px}
 .start-btn{padding:12px 28px;font-size:0.95rem}
+.mobile-nav{display:none}
+.mobile-nav-bar{display:none}
+}
+@media(max-width:768px){
+.sidebar{display:none}
+.mobile-nav{display:block;padding:10px 15px;background:#f0ebe0;border-top:1px solid #d4c9b5}
+.mobile-nav h3{font-size:0.8rem;color:#5c4d3a;margin-bottom:8px}
+.mobile-nav-chapters{display:flex;flex-wrap:wrap;gap:6px}
+.mobile-nav-chapters a{padding:6px 12px;background:#e8e0d0;border-radius:15px;font-size:0.75rem;color:#5c5040;text-decoration:none}
+.mobile-nav-chapters a.active{background:#6b5a47;color:#f5f0e6}
 }
 </style>
 </head>
@@ -83,6 +92,10 @@ body{font-family:'Noto Serif SC',serif;background:#f5f0e6;min-height:100vh}
             <button class="start-btn" onclick="showChapter(0)">开始阅读</button>
         </div>
     </div>
+    <div class="mobile-nav" id="mobileNav">
+        <h3>目录</h3>
+        <div class="mobile-nav-chapters" id="mobileNavChapters"></div>
+    </div>
 </div>
 <script>
 var chapters = [
@@ -104,6 +117,14 @@ function initChapters() {
         item.onclick = (function(idx) { return function() { showChapter(idx); }; })(i);
         list.appendChild(item);
     });
+    var mobileList = document.getElementById('mobileNavChapters');
+    chapters.forEach(function(ch, i) {
+        var a = document.createElement('a');
+        a.href = '#';
+        a.textContent = ch.title;
+        a.onclick = (function(idx) { return function(e) { e.preventDefault(); showChapter(idx); }; })(i);
+        mobileList.appendChild(a);
+    });
 }
 
 function showCover() {
@@ -116,6 +137,7 @@ function showCover() {
     html += '</div>';
     document.getElementById('contentArea').innerHTML = html;
     document.querySelector('.sidebar').classList.add('hidden');
+    document.getElementById('mobileNav').style.display = 'none';
 }
 
 function showChapter(idx) {
@@ -127,9 +149,14 @@ function showChapter(idx) {
     html += '<div class="chapter-content">' + ch.text + '</div>';
     document.getElementById('contentArea').innerHTML = html;
     document.querySelector('.sidebar').classList.remove('hidden');
+    document.getElementById('mobileNav').style.display = 'block';
     document.querySelectorAll('.chapter-item').forEach(function(item, i) {
         item.classList.remove('active');
         if (i === idx + 1) { item.classList.add('active'); }
+    });
+    document.querySelectorAll('#mobileNavChapters a').forEach(function(a, i) {
+        a.classList.remove('active');
+        if (i === idx) { a.classList.add('active'); }
     });
 }
 
